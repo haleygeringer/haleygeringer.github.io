@@ -1,0 +1,10 @@
+---
+title: "Is Nebraska Baseball The Best In The Big Ten"
+author: "Haley Geringer"
+date: '2024-04-02'
+categories: [news, code, analysis]
+image: default
+format: 
+  html:
+    code-fold: true
+---
