@@ -8,3 +8,137 @@ format:
   html:
     code-fold: true
 ---
+
+Looking at Big Ten baseball can be a little confusing since not every university has a baseball team, but that's no the point. With the teams we do have, how can we tell which one is the best among the rest?
+
+First we can look and compare each teams pitching stats and how well they do on the mound. You have to keep in mind that pitchers have that added extra stress from the pitch clock that could affect how they perform.
+
+```{r}
+library(tidyverse)
+library(patchwork)
+```
+
+```{r}
+games <- read.csv("pitching.csv")
+```
+
+```{r}
+totals <- games |> 
+  group_by(Team) |> 
+  summarize(
+    EarnedRuns = sum(ERA),
+    InningsPlayed = sum(IP)
+  ) 
+```
+
+```{r}
+bar1 <- ggplot() + 
+  geom_bar(data=totals, aes(x=reorder(Team, EarnedRuns), weight=EarnedRuns)) +
+  coord_flip() + 
+  labs(
+    x="", 
+    y="Average Earned Runs"
+    ) + 
+  theme_minimal() 
+
+bar2 <- ggplot() + 
+  geom_bar(data=totals, aes(x=reorder(Team, InningsPlayed), weight=InningsPlayed), color="grey") +
+  coord_flip() +  
+  labs(
+    x="", 
+    y="Average Innings Played") + 
+  theme_minimal()
+
+bar1 + bar2 +
+  plot_annotation(
+    title = "Earned Runs vs. Innings Played",
+    subtitle = "How does Nebraska pitching compare to the rest of the Big Ten.",
+    caption = "Source: bigten.org | By: Haley Geringer"
+  )
+```
+
+Looking into the graphs you can tell where Nebraska does the best. Their average earned innings is the lowest in the Big Ten. That means they are less likely to let a batter walk or get a hit. Average innings played Nebraska stands in the middle. They aren't the best, but they aren't the worst.
+
+```{r}
+library(tidyverse)
+```
+
+```{r}
+batting <- read_csv("battingstats.csv")
+```
+
+```{r}
+nu <- batting |> filter (Team =="Nebraska")
+rt <- batting |> filter (Team =="Rutgers")
+```
+
+```{r}
+ggplot() + 
+  geom_point(data=batting, aes(x=AB, y=H)) +
+  geom_point(data=nu, aes(x=AB, y=H), color="red") +
+  geom_point(data=rt, aes(x=AB, y=H), color="maroon") +
+  labs(
+    x="At Bats", 
+    y="Hits"
+    ) + 
+  theme_minimal() +
+  plot_annotation(
+    title = "At Bats vs. Actual Hits",
+    subtitle = "With Nebraska being number 5 for batting, 
+    how do they compare to number one Rutgers.",
+    caption = "Source: bigten.org | By: Haley Geringer"
+  )
+```
+
+Looking into our hitting statistics they aren't looking pretty. The red dot representing Nebraska is in the average area where most of the other dots are. Rutgers on the other hand, they are above Nebraska and every other team in the Big Ten. They lead the Big Ten in at bats and hits creating that big jump between teams. With that being said, Nebraska's performance on the hitting side could use some work but it's not the worst anyone has seen.
+
+```{r}
+library(tidyverse)
+library(ggalt)
+library(ggtext)
+```
+
+```{r}
+fielding <- read_csv("fieldingstats.csv")
+```
+
+```{r}
+head(fielding)
+```
+
+```{r}
+difference <- fielding |>
+  group_by(Team) |> 
+  summarise(
+    PutOuts = sum(PO), 
+    Errors = sum(E))
+ 
+```
+
+```{r}
+ggplot() + 
+  geom_dumbbell(
+    data=difference, 
+    aes(y=reorder(Team, Errors), x=PutOuts, xend=Errors),
+    size = 2,
+    colour = "grey",
+    colour_x = "green",
+    colour_xend = "red") +
+  labs(
+    title="Put Outs vs Errors in the Big Ten", 
+    subtitle = "If <span style = 'color:green;'>PutOuts</span> are on the right, that's good. If <span style = 'color:red;'>Errors</span> are on the right, that's bad."
+  ) + 
+  theme(
+    plot.subtitle = element_textbox_simple()
+  ) +
+  labs(
+    x="", 
+    y=""
+    ) + 
+  plot_annotation(
+    caption = "Source: bigten.org | By: Haley Geringer"
+  )
+  theme_minimal()
+```
+
+Nobody wants to see a high percentage of errors in their fielding. Every team, including Nebraska, has roughly the same percentage of error in their fielding. That's good! That means Nebraska is not doing terrible. Put outs on the other hand, that is in the middle closer to the lower end of that. They aren't getting as many people out with fielding as they are with pitching, but their still getting people out so it evens out.
