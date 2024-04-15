@@ -1,0 +1,23 @@
+[
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this blog"
+  },
+  {
+    "objectID": "posts/nebraska-baseball/index.html",
+    "href": "posts/nebraska-baseball/index.html",
+    "title": "Is Nebraska Baseball The Best In The Big Ten",
+    "section": "",
+    "text": "Looking at Big Ten baseball can be a little confusing since not every university has a baseball team, but that’s no the point. With the teams we do have, how can we tell which one is the best among the rest?\nFirst we can look and compare each teams pitching stats and how well they do on the mound. You have to keep in mind that pitchers have that added extra stress from the pitch clock that could affect how they perform.\n\n\nCode\nlibrary(tidyverse)\nlibrary(patchwork)\nlibrary(ggalt)\nlibrary(ggtext)\n\ngames &lt;- read.csv(\"pitching.csv\")\n\ntotals &lt;- games |&gt; \n  group_by(Team) |&gt; \n  summarize(\n    EarnedRuns = sum(ERA),\n    InningsPlayed = sum(IP)\n  ) \n\nbar1 &lt;- ggplot() + \n  geom_bar(data=totals, aes(x=reorder(Team, EarnedRuns), weight=EarnedRuns)) +\n  coord_flip() + \n  labs(\n    x=\"\", \n    y=\"Average Earned Runs\"\n    ) + \n  theme_minimal() \n\nbar2 &lt;- ggplot() + \n  geom_bar(data=totals, aes(x=reorder(Team, InningsPlayed), weight=InningsPlayed), color=\"grey\") +\n  coord_flip() +  \n  labs(\n    x=\"\", \n    y=\"Average Innings Played\") + \n  theme_minimal()\n\nbar1 + bar2 +\n  plot_annotation(\n    title = \"Earned Runs vs. Innings Played\",\n    subtitle = \"How does Nebraska pitching compare to the rest of the Big Ten.\",\n    caption = \"Source: bigten.org | By: Haley Geringer\"\n  )\n\n\n\n\n\n\n\n\n\nLooking into the graphs you can tell where Nebraska does the best. Their average earned innings is the lowest in the Big Ten. That means they are less likely to let a batter walk or get a hit. Average innings played Nebraska stands in the middle. They aren’t the best, but they aren’t the worst.\n\n\nCode\nbatting &lt;- read_csv(\"battingstats.csv\")\n\nnu &lt;- batting |&gt; filter (Team ==\"Nebraska\")\nrt &lt;- batting |&gt; filter (Team ==\"Rutgers\")\n\nggplot() + \n  geom_point(data=batting, aes(x=AB, y=H)) +\n  geom_point(data=nu, aes(x=AB, y=H), color=\"red\") +\n  geom_point(data=rt, aes(x=AB, y=H), color=\"maroon\") +\n  labs(\n    x=\"At Bats\", \n    y=\"Hits\"\n    ) + \n  theme_minimal() +\n  plot_annotation(\n    title = \"At Bats vs. Actual Hits\",\n    subtitle = \"With Nebraska being number 5 for batting, \n    how do they compare to number one Rutgers.\",\n    caption = \"Source: bigten.org | By: Haley Geringer\"\n  )\n\n\n\n\n\n\n\n\n\nLooking into our hitting statistics they aren’t looking pretty. The red dot representing Nebraska is in the average area where most of the other dots are. Rutgers on the other hand, they are above Nebraska and every other team in the Big Ten. They lead the Big Ten in at bats and hits creating that big jump between teams. With that being said, Nebraska’s performance on the hitting side could use some work but it’s not the worst anyone has seen.\n\n\nCode\nfielding &lt;- read_csv(\"fieldingstats.csv\")\n\n\ndifference &lt;- fielding |&gt;\n  group_by(Team) |&gt; \n  summarise(\n    PutOuts = sum(PO), \n    Errors = sum(E))\n \n\nggplot() + \n  geom_dumbbell(\n    data=difference, \n    aes(y=reorder(Team, Errors), x=PutOuts, xend=Errors),\n    size = 2,\n    colour = \"grey\",\n    colour_x = \"green\",\n    colour_xend = \"red\") +\n  labs(\n    title=\"Put Outs vs Errors in the Big Ten\", \n    subtitle = \"If &lt;span style = 'color:green;'&gt;PutOuts&lt;/span&gt; are on the right, that's good. If &lt;span style = 'color:red;'&gt;Errors&lt;/span&gt; are on the right, that's bad.\",\n    caption = \"Source: bigten.org | By: Haley Geringer\"\n  ) +\n  theme_minimal() +\n  theme(\n    plot.subtitle = element_textbox_simple()\n  ) \n\n\n\n\n\n\n\n\n\nNobody wants to see a high percentage of errors in their fielding. Every team, including Nebraska, has roughly the same percentage of error in their fielding. That’s good! That means Nebraska is not doing terrible. Put outs on the other hand, that is in the middle closer to the lower end of that. They aren’t getting as many people out with fielding as they are with pitching, but their still getting people out so it evens out."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Latest posts",
+    "section": "",
+    "text": "Is Nebraska Baseball The Best In The Big Ten\n\n\n\n\n\n\nsports\n\n\nanalysis\n\n\n\n\n\n\n\n\n\nApr 2, 2024\n\n\nHaley Geringer\n\n\n\n\n\n\nNo matching items"
+  }
+]
