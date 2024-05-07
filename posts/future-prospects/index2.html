@@ -190,7 +190,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <p>With the 2023-2024 college baseball season coming to an end, lets look into this year top pitching prospects, but more importantly, why are they at the ranks they are at?</p>
-<p>Looking into this first graph we can compare the amount of strike outs and hits each pitcher has. The dots that are encircled are all of the prospects who are ranked number one out of all the 305 prospects. You can see that they are lower on the graph which mean they have less hits off of their pitches. Paul Skenes is probably the best out of the group since he has the least amount of hits and more strike outs than the rest.</p>
+<p>Looking into this first graph we can compare the amount of strike outs and hits each pitcher has. The dots that are encircled are all of the prospects who are ranked number one out of all the 305 prospects. You can see that they are lower on the graph which mean they have less hits off of their pitches.</p>
+<p>Paul Skenes is probably the best. He has little over 40 strike outs and less than 20 hits off of his pitches. Following close behind him is Tink Hence with a little over 30 strike outs and less than 15 hits.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
@@ -238,7 +239,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>This graph only shows the groups of the first three ranks since showing all 305 prospects would be a lot to look at. Obviously red is bad and green is good, but what is the point? The farther a part each dot is from each other the better. The goal for each of the pitchers is to have less automatic first bases and more strike outs. The closer they are to each other isn’t really the best. Look at Jared Jones, the fourth dots down on the chart, his two dots are the furthest away from each other than any one else on the chart. That shows he almost always throws strikes when he is on the mound.</p>
+<p>This graph only shows the groups of the first three ranks since showing all 305 prospects would be a lot to look at. Obviously red is bad and green is good, but what is the point? The farther a part each dot is from each other the better. The goal for each of the pitchers is to have less automatic first bases and more strike outs. The closer they are to each other isn’t really the best.</p>
+<p>Look at Jared Jones, the fourth dots down on the chart, his two dots are the furthest away from each other than any one else on the chart. That shows he has thrown over 50 strikes and has let only five people walk this season.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
@@ -254,15 +256,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">colour_xend =</span> <span class="st">"green"</span>) <span class="sc">+</span></span>
 <span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
 <span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">title=</span><span class="st">"Automatic First base VS. Strike Outs In The Top Prospects"</span>, </span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"If &lt;span style = 'color:green;'&gt;strike outs&lt;/span&gt; are on the right, that's good. </span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"If &lt;span style = 'color:green;'&gt;strike outs&lt;/span&gt; are on the right,       that's good. </span></span>
 <span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="st">    If &lt;span style = 'color:red;'&gt;automatic first bases&lt;/span&gt; are on the right, that's bad."</span>, </span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">x=</span><span class="st">"Automatic First Base &amp; Strike Outs"</span>, </span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">y=</span><span class="st">"Pitcher"</span>, </span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption=</span><span class="st">"Source: mlb.com | By: Haley Geringer"</span></span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span> </span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.subtitle =</span> <span class="fu">element_textbox_simple</span>()</span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">x=</span><span class="st">"Automatic First Base &amp; Strike Outs"</span>, </span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">y=</span><span class="st">"Pitcher"</span>, </span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption=</span><span class="st">"Source: mlb.com | By: Haley Geringer"</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span> </span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.subtitle =</span> <span class="fu">element_textbox_simple</span>()</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div>
@@ -272,7 +275,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>How does the amount of hits off of your pitches really affect your stats? We can figure that out by looking the grab below. Each of the bubbles below is one of the top pitchers in that column for the amount of games they’ve pitched in. The size of their bubble is determined by the amount of hits batters have gotten off of their pitches. The bigger the bubble is bad for them. All five of them have some of the smaller bubbles so less hits. You can also see they each have played few games but have quite a few innings under their belts.</p>
+<p>How does the amount of hits off of your pitches really affect your stats? We can figure that out by looking the grab below. Each of the bubbles below is one of the top pitchers in that column for the amount of games they’ve pitched in. The size of their bubble is determined by the amount of hits batters have gotten off of their pitches. The bigger the bubble is bad for them. All five of them have some of the smaller bubbles so less hits.</p>
+<p>You can also see they each have played few games but have quite a few innings under their belts. Tink Hence, Paul Skenes and Ty Madden all roughly have less than 20 hits off of their pitches while all pitching almost the same amount of innings.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
@@ -307,14 +311,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>    <span class="at">data=</span>bb,</span>
 <span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">x=</span>gamesPitched, <span class="at">y=</span>inningsPitched, <span class="at">size=</span>hits), <span class="at">color=</span><span class="st">"lightblue"</span>)<span class="sc">+</span></span>
 <span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="at">data=</span>bb, <span class="fu">aes</span>(<span class="at">x=</span>gamesPitched, <span class="at">y=</span>inningsPitched<span class="sc">+</span><span class="dv">2</span>, <span class="at">label=</span>full_name)) <span class="sc">+</span></span>
-<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">"Innings And Games VS. Hits "</span>, <span class="at">subtitle=</span><span class="st">"How does the amount of hits against a players pitch affect their stats?"</span>, <span class="at">x=</span><span class="st">"Number of Games Pitched"</span>, <span class="at">y=</span><span class="st">"Average Amount of Innings Pitched"</span>, <span class="at">size=</span><span class="st">"Hits"</span>, <span class="at">caption=</span><span class="st">"Source: mlb.com | By: Haley Geringer"</span>) <span class="sc">+</span> </span>
-<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span> </span>
-<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
-<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">16</span>, <span class="at">face =</span> <span class="st">"bold"</span>),</span>
-<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">8</span>), </span>
-<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">10</span>), </span>
-<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>()</span>
-<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="fl">5.42623</span>) <span class="sc">+</span></span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="fl">18.31541</span>) <span class="sc">+</span></span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">"Innings And Games VS. Hits "</span>, <span class="at">subtitle=</span><span class="st">"How does the amount of hits against a players pitch affect their stats?"</span>, <span class="at">x=</span><span class="st">"Number of Games Pitched"</span>, <span class="at">y=</span><span class="st">"Average Amount of Innings Pitched"</span>, <span class="at">size=</span><span class="st">"Hits"</span>, <span class="at">caption=</span><span class="st">"Source: mlb.com | By: Haley Geringer"</span>) <span class="sc">+</span> </span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span> </span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">16</span>, <span class="at">face =</span> <span class="st">"bold"</span>),</span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">8</span>), </span>
+<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">10</span>), </span>
+<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>()</span>
+<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div>
